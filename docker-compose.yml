@@ -1,0 +1,28 @@
+version: '2'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile-webapp
+    command: python /all_in_one/webapp/yn_history.py
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./all_in_one:/all_in_one
+    links:
+      - db
+    extra_hosts:
+      - "debug_host:${DOCKER0_IP}" # This is for debugger
+  db:
+    image: mongo:3.2.9
+  cron:
+    build:
+      context: .
+      dockerfile: Dockerfile-cron
+    command: cron && tail -f /var/log/yn_cron.log
+    volumes:
+      - ./all_in_one:/all_in_one
+    links:
+      - db
+    extra_hosts:
+      - "debug_host:${DOCKER0_IP}" # This is for debugger

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News from yah**</title>
+</head>
+<body>
+    <h1>News</h1>
+    <table>
+        <tr><th>Title</th><th>URL</th><th>Date</th></tr>
+        {% for info in news %}
+        <tr><td><a>{{info.title}}</a></td><td><a>{{info.url}}</a></td><td><a>{{info.date|datetimeformat}}</a></td></tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

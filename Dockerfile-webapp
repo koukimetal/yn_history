@@ -1,0 +1,5 @@
+FROM python:3.5.2
+ADD all_in_one /all_in_one
+WORKDIR /all_in_one/webapp
+RUN pip install -r requirements.txt
+ENV PYTHONPATH=$PYTHONPATH:/

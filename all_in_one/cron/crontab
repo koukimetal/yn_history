@@ -1,0 +1,4 @@
+*/30 * * * * root export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin; export PYTHONPATH=:/; python /all_in_one/cron/yn_cron.py >> /var/log/yn_cron.log 2>&1
+# This is for check cron's environment
+#* * * * * root /configs.sh; env > /tmp/env.output
+# Don't remove the empty line at the end of this file. It is required to run the cron job
